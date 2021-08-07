@@ -136,10 +136,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderRadius: BorderRadius.circular(30)),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 10),
-                      textStyle: const TextStyle(fontSize: 20),
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontFamily: 'CormorantGaramond'),
                     ),
-                    child: const Text(
-                      'Sign In With Google',
+                    child: const FittedBox(
+                      child: Text(
+                        'Sign In With Google',
+                      ),
                     ),
                     // ignore: avoid_print
                     onPressed: () => print('op'),
