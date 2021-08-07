@@ -1,7 +1,13 @@
-import 'View/screnes/login_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:diary_app/View/screnes/home_screne.dart';
 
-void main() {
+// import 'package:diary_app/View/screnes/login_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -32,7 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: LoginScreen(),
+      // body: LoginScreen(),
+      body: HomeScrene(),
     );
   }
 }

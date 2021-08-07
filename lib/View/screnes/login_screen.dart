@@ -1,3 +1,5 @@
+import 'package:diary_app/Controllers/firebase/firebase_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,6 +13,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+
+    meathodAuthh() {
+      FirebaseServices op = FirebaseServices();
+      op.googleSignInProcess();
+    }
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
@@ -64,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 SizedBox(
-                  height: height * 0.065,
+                  height: height * 0.1,
                   child: const TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -87,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // ignore: prefer_const_constructors
                 SizedBox(
-                  height: height * 0.065,
+                  height: height * 0.1,
                   child: const TextField(
                     obscureText: true,
                     obscuringCharacter: '*',
@@ -145,7 +153,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     // ignore: avoid_print
-                    onPressed: () => print('op'),
+                    onPressed: meathodAuthh,
+                    // onPressed: () => print('op'),
                   ),
                 ),
               ],
@@ -156,15 +165,18 @@ class _LoginScreenState extends State<LoginScreen> {
             // ignore: prefer_const_literals_to_create_immutables
             children: [
               const Text('Don\'t have an account ? '),
-              const TextButton(
-                onPressed: null,
-                child: Text(
+              TextButton(
+                onPressed: () {
+                  FirebaseServices op = FirebaseServices();
+                  op.signOut();
+                },
+                child: const Text(
                   'Register',
                   style: TextStyle(color: Color.fromRGBO(250, 150, 0, 1)),
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
