@@ -1,5 +1,6 @@
 import 'package:diary_app/Controllers/firebase/firebase_services.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart' as snakauth;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,9 +14,30 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
-    meathodAuthh() {
-      FirebaseServices op = FirebaseServices();
-      op.googleSignInProcess();
+    startGoogleSignIn() {
+      try {
+        setState(() async {
+          FirebaseServices op = FirebaseServices();
+          await op.googleSignInProcess();
+          final user = snakauth.FirebaseAuth.instance.currentUser;
+          if (user != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Sign In ${user.displayName} with Google'),
+              ),
+            );
+            Navigator.pushNamed(context, '/home');
+          }
+        });
+      } catch (e) {
+        print('I am The Catch in Google Sign In Meathod ');
+
+        //   ScaffoldMessenger.of(context).showSnackBar(
+        //     const SnackBar(
+        //       content: Text('Sign In  with Google Failed'),
+        //     ),
+        //   );
+      }
     }
 
     return SingleChildScrollView(
@@ -152,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     // ignore: avoid_print
-                    onPressed: meathodAuthh,
+                    onPressed: startGoogleSignIn,
                     // onPressed: () => print('op'),
                   ),
                 ),
