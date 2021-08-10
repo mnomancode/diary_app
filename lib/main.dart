@@ -1,7 +1,6 @@
-import 'package:diary_app/View/screnes/home_screne.dart';
-
-// import 'package:diary_app/View/screnes/login_screen.dart';
+import 'package:diary_app/View/screnes/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:diary_app/View/screnes/home_screne.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {
@@ -22,7 +21,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(),
+        '/home': (context) => const HomeScrene(),
+      },
+      // home: const MyHomePage(),
     );
   }
 }
@@ -38,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      // body: LoginScreen(),
-      body: HomeScrene(),
+      body: LoginScreen(),
+      // body: HomeScrene(),
     );
   }
 }
