@@ -1,17 +1,15 @@
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-// ignore: unused_import
-import 'package:firebase_core/firebase_core.dart' as core;
+import 'package:google_sign_in/google_sign_in.dart' as google;
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class FirebaseServices {
-  final GoogleSignIn _signInUser = GoogleSignIn();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final google.GoogleSignIn _signInUser = google.GoogleSignIn();
+  final auth.FirebaseAuth _auth = auth.FirebaseAuth.instance;
   Future<String?> googleSignInProcess() async {
     try {
-      final GoogleSignInAccount? account = await _signInUser.signIn();
-      final GoogleSignInAuthentication? googleSignInAuthentication =
+      final google.GoogleSignInAccount? account = await _signInUser.signIn();
+      final google.GoogleSignInAuthentication? googleSignInAuthentication =
           await account!.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
+      final auth.AuthCredential credential = auth.GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication!.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );

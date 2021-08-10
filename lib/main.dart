@@ -1,11 +1,11 @@
-import 'package:diary_app/View/screnes/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:diary_app/View/screnes/login_screen.dart';
 import 'package:diary_app/View/screnes/home_screne.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart' as core;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await core.Firebase.initializeApp();
 
   runApp(const MyApp());
 }
