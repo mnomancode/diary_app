@@ -58,11 +58,10 @@ class _HomeScreneState extends State<HomeScrene> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             const Text('My App Bar'),
-            const CircleAvatar(
+            CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(
-                '_user.photoURL',
-              ),
+                  _user != null ? _user!.photoURL! : '_user.photoURL'),
             )
           ],
         ),
