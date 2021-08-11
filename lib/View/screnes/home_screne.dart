@@ -1,3 +1,5 @@
+import 'package:diary_app/Controllers/firebase/firebase_services.dart';
+// import 'package:diary_app/Controllers/firebase/google_drive.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +13,18 @@ class HomeScrene extends StatefulWidget {
 class _HomeScreneState extends State<HomeScrene> {
   // ignore: unused_field
   final User? _user = FirebaseAuth.instance.currentUser;
-  List<String> data = ['text1 ', 'text2'];
+  List<String> data = [
+    'text1 ',
+    'text2',
+    'text3',
+    'text4',
+  ];
   final textController = TextEditingController();
 
   void submitText() {
+    FirebaseServices op = FirebaseServices();
+    op.load();
+
     setState(() {
       data.add(textController.text);
     });
