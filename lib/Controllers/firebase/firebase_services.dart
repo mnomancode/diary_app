@@ -20,7 +20,7 @@ class FirebaseServices {
       );
 
       await _auth.signInWithCredential(credential);
-      print(_auth.signInWithCredential(credential));
+      // print(_auth.signInWithCredential(credential));
     } catch (e) {
       // ignore: avoid_print
       print(e);
@@ -38,16 +38,16 @@ class FirebaseServices {
   }
 
   Future<void> load() async {
-    /*
-    site to enable Publishing Status to testing account 
-    https://console.cloud.google.com/apis/credentials/consent?project=diary-app-d0efe
+    // /*
+    // site to enable Publishing Status to testing account
+    // https://console.cloud.google.com/apis/credentials/consent?project=diary-app-d0efe
 
-    site to enable Drive API to testing account
-    https://flutter.dev/docs/development/data-and-backend/google-apis
+    // site to enable Drive API to testing account
+    // https://flutter.dev/docs/development/data-and-backend/google-apis
 
-    written tutorial:
-    https://betterprogramming.pub/the-minimum-guide-for-using-google-drive-api-with-flutter-9207e4cb05ba
-    */
+    // written tutorial:
+    // https://betterprogramming.pub/the-minimum-guide-for-using-google-drive-api-with-flutter-9207e4cb05ba
+    // */
 
     final google.GoogleSignIn _signInUser = google.GoogleSignIn(
       scopes: <String>[DriveApi.driveScope],
