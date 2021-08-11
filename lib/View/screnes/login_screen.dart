@@ -30,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
         });
       } catch (e) {
+        // ignore: avoid_print
         print('I am The Catch in Google Sign In Meathod ');
 
         //   ScaffoldMessenger.of(context).showSnackBar(

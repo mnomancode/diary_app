@@ -37,6 +37,9 @@ dependencies:
   google_sign_in: ^5.0.7
   http: ^0.13.3
   firebase_auth: ^3.0.1
+  googleapis: ^4.0.0 
+  # gives the client object to work with
+  extension_google_sign_in_as_googleapis_auth: ^2.0.2
 
 dev_dependencies:
   flutter_test:
