@@ -46,3 +46,4 @@ app.*.map.json
 /android/app/release
 lib/Sample
 android/app/google-services.json
+lib/Controllers/firebase/oppop.dart
